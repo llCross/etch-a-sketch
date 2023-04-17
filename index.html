@@ -13,11 +13,26 @@
     <div class="container">
     <div class="grid-container"></div>
     </div>
-
-    <input type="color" class="color-picker" value="#000000">
-
-    <input type="range" min="1" max="100" value="16" class="grid-size-slider">
-    <p>Grid size: <span class="grid-size"></span></p>
     
+    <div class="button-container">
+    <input class="color-picker" type="color" class="color-picker" value="#000000">
+        
+        <div class="slider-container">
+        <input class="grid-size-slider" type="range" min="1" max="100" value="16" >
+        <p>Grid size: <span class="grid-size"></span></p>
+        </div>
+        
+    <button class="eraser-button">Eraser</button>
+    <button class="clear-button">Clear</button>
+    </div>
+
+<footer class="footer">
+    <p>Copyright ©<script>
+        document.write(new Date().getFullYear())
+      </script>
+      Cross
+    </p>
+</footer>
+
 </body>
 </html>

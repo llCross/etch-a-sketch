@@ -56,4 +56,31 @@ document.addEventListener("DOMContentLoaded", () => {
 
 draw();  
 
+//eraser function
+const eraseButton = document.querySelector('.eraser-button');
+
+eraseButton.addEventListener('click', erase);
+
+function erase () {
+  const squares = document.querySelectorAll('.square');
+
+  squares.forEach(square => {
+    square.addEventListener('mouseover', () => {
+      square.style.backgroundColor = 'white';
+    });
+  });
+}
+
+//clear function
+const clearButton = document.querySelector('.clear-button');
+
+clearButton.addEventListener('click', clear);
+
+function clear () {
+  const squares = document.querySelectorAll('.square');
+  squares.forEach(square => {
+    square.style.backgroundColor = 'white';
+  });
+}
+
 });
