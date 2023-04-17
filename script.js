@@ -44,6 +44,10 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 //function to change div color on hover
+const drawButton = document.querySelector('.draw-button');
+
+drawButton.addEventListener('click', draw);
+
   function draw () {
     const squares = document.querySelectorAll('.square');
 
@@ -53,8 +57,6 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     });
   }
-
-draw();  
 
 //eraser function
 const eraseButton = document.querySelector('.eraser-button');
@@ -82,5 +84,7 @@ function clear () {
     square.style.backgroundColor = 'white';
   });
 }
+
+draw();  
 
 });
