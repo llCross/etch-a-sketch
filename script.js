@@ -48,15 +48,20 @@ const drawButton = document.querySelector('.draw-button');
 
 drawButton.addEventListener('click', draw);
 
-  function draw () {
-    const squares = document.querySelectorAll('.square');
+function draw() {
+  const squares = document.querySelectorAll('.square');
 
-    squares.forEach(square => {
-      square.addEventListener('mouseover', () => {
-        square.style.backgroundColor = currentColor;
-      });
+  for (let i = 0; i < squares.length; i++) {
+    let colorValue = 100;
+
+    squares[i].addEventListener('mouseover', () => {
+      if (colorValue > 0) {
+        colorValue -= 10;
+      }
+      squares[i].style.backgroundColor = `rgb(${colorValue}, ${colorValue}, ${colorValue})`;
     });
   }
+}
 
 //eraser function
 const eraseButton = document.querySelector('.eraser-button');
