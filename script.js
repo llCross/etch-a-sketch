@@ -1,17 +1,19 @@
 document.addEventListener("DOMContentLoaded", () => {
     
-  const gridSizeSlider = document.getElementById('grid-size-slider');
-  const gridSizeLabel = document.getElementById('grid-size');
-  
+  const gridSizeSlider = document.querySelector('.grid-size-slider');
+  const gridSizeLabel = document.querySelector('.grid-size');
+
+//a slider to control the number of grids
   gridSizeSlider.addEventListener('input', () => {
     const gridSize = gridSizeSlider.value;
     gridSizeLabel.textContent = `${gridSize}x${gridSize}`;
     createGrid(gridSize);
   });
   
+//function to create a grid using divs
   function createGrid(size) {
     const container = document.querySelector('.grid-container');
-    container.innerHTML = '';
+    container.textContent = '';
     container.style.width = '750px';
     container.style.height = '750px';
   
@@ -24,10 +26,34 @@ document.addEventListener("DOMContentLoaded", () => {
       square.style.height = `${squareSize}px`;
       container.appendChild(square);
     }
+
+  draw();
+
   }
   
-  // initialize grid
+// initialize grid
   createGrid(gridSizeSlider.value);
   gridSizeLabel.textContent = `${gridSizeSlider.value}x${gridSizeSlider.value}`;
+
+//color picker
+  const colorPicker = document.querySelector('.color-picker');
+  let currentColor = colorPicker.value;
+
+  colorPicker.addEventListener('input', () => {
+    currentColor = colorPicker.value;
+});
+
+//function to change div color on hover
+  function draw () {
+    const squares = document.querySelectorAll('.square');
+
+    squares.forEach(square => {
+      square.addEventListener('mouseover', () => {
+        square.style.backgroundColor = currentColor;
+      });
+    });
+  }
+
+draw();  
 
 });
