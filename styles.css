@@ -114,4 +114,12 @@ p, .grid-size {
   justify-content: center;
   margin: 0px;
   padding: 0px;
+  align-items: center;
+  gap: 10px;
+
+}
+
+img {
+  height: 30px;
+  width: 30px;
 }
