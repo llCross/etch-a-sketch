@@ -26,9 +26,6 @@ document.addEventListener("DOMContentLoaded", () => {
       square.style.height = `${squareSize}px`;
       container.appendChild(square);
     }
-
-  draw();
-
   }
   
 // initialize grid
@@ -60,6 +57,20 @@ function draw() {
       }
       squares[i].style.backgroundColor = `rgb(${colorValue}, ${colorValue}, ${colorValue})`;
     });
+
+    squares[i].addEventListener('touchstart', () => {
+      if (colorValue > 0) {
+        colorValue -= 10;
+      }
+      squares[i].style.backgroundColor = `rgb(${colorValue}, ${colorValue}, ${colorValue})`;
+    });
+
+    squares[i].addEventListener('touchmove', () => {
+      if (colorValue > 0) {
+        colorValue -= 10;
+      }
+      squares[i].style.backgroundColor = `rgb(${colorValue}, ${colorValue}, ${colorValue})`;
+    });
   }
 }
 
@@ -68,11 +79,19 @@ const eraseButton = document.querySelector('.eraser-button');
 
 eraseButton.addEventListener('click', erase);
 
-function erase () {
+function erase() {
   const squares = document.querySelectorAll('.square');
 
   squares.forEach(square => {
     square.addEventListener('mouseover', () => {
+      square.style.backgroundColor = 'white';
+    });
+
+    square.addEventListener('touchstart', () => {
+      square.style.backgroundColor = 'white';
+    });
+
+    square.addEventListener('touchmove', () => {
       square.style.backgroundColor = 'white';
     });
   });
